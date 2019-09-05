@@ -89,16 +89,13 @@ from tensorforce.agents import PPOAgent
 # Instantiate a Tensorforce agent
 agent = PPOAgent(
     states=dict(type='float', shape=(10,)),
-    actions=dict(type='int', num_values=5),
+    actions=dict(type='int', num_actions=5),
     network=[
         dict(type='dense', size=64),
         dict(type='dense', size=64)
     ],
     step_optimizer=dict(type='adam', learning_rate=1e-4)
 )
-
-# Initialize the agent
-agent.initialize()
 
 # Retrieve the latest (observable) environment state
 state = get_current_state()  # (float array of shape [10])
